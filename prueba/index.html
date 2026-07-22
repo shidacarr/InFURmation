@@ -31,7 +31,7 @@
     position: relative;
     overflow-x: hidden;
 
-  
+    
     background:
       radial-gradient(ellipse 1100px 600px at 50% -18%, rgba(210, 97, 255, 0.22), transparent 65%),
       radial-gradient(ellipse 900px 520px at 50% 118%, rgba(201, 20, 20, 0.20), transparent 65%),
@@ -79,7 +79,7 @@
 
   .card {
     position: relative;
-    width: 320px;
+    width: min(100% - 20px, 380px);
     background: #1c1a20;
     border: 1px solid #33303a;
     border-radius: 22px;
@@ -142,6 +142,7 @@
     margin-top: 4px;
     margin-bottom: 16px;
   }
+
 
   .pronombre {
     display: inline-flex;
@@ -317,9 +318,27 @@
     .zorrito.z3, .zorrito.z4, .zorrito.z5, .zorrito.z6,
     .huella.h1, .huella.h2, .huella.h3, .huella.h4 { display: none; }
   }
+
+  @media (max-width: 420px) {
+    body { padding: 24px 8px; }
+    .card { padding: 28px 18px 26px; border-radius: 18px; }
+    .avatar-ring { width: 92px; height: 92px; }
+    .nombre { font-size: 23px; }
+    .minicarta { padding: 14px 14px; }
+    .minicarta-texto { font-size: 12px; }
+  }
+
+  @media (max-width: 340px) {
+    body { padding: 16px 4px; }
+    .card { padding: 24px 14px 22px; }
+    .avatar-ring { width: 84px; height: 84px; margin-bottom: 14px; }
+    .nombre { font-size: 21px; }
+    .pronombre { font-size: 11px; padding: 5px 10px 5px 8px; }
+  }
 </style>
 </head>
 <body>
+
 
   <svg class="zorrito z1" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
     <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
@@ -425,11 +444,13 @@
       <div class="minicarta">
         <div class="minicarta-eyebrow">Sobre mí</div>
         <p class="minicarta-texto">
-          Esta es una mini bio de ejemplo 🌙 Personalízala con lo que quieras contar sobre ti: aficiones, profesión, qué buscas, etc. Hay que ser creativo, no?.
+          Esta es una mini bio de ejemplo 🌙 Personalízala con lo que quieras contar sobre ti: aficiones, profesión, qué buscas, etc. Se puede poner lo que quieras jeje :3.
         </p>
       </div>
 
-      <div class="footer">✦ InFURmation - Tarjeta Digital ✦</div>
+  
+
+      <div class="footer">✦ Tarjeta Digital ✦</div>
     </div>
   </div>
 
