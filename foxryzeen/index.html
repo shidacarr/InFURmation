@@ -177,6 +177,42 @@
     color: #524d5a;
     text-transform: uppercase;
   }
+body {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(210,97,255,.25), transparent 45%),
+    radial-gradient(circle at bottom right, rgba(201,20,20,.30), transparent 40%),
+    linear-gradient(135deg,#130814,#1a0d22,#120c16);
+}
+
+/* Capa de zorritos */
+body::before{
+    content:"🦊 🦊 🦊 🦊 🦊 🦊 🦊 🦊";
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:space-evenly;
+    align-items:space-evenly;
+    flex-wrap:wrap;
+    font-size:70px;
+    opacity:.045;
+    filter:blur(.4px);
+    pointer-events:none;
+    transform:rotate(-18deg) scale(1.4);
+}
+
+
+body::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(255,70,70,.18), transparent 25%),
+      radial-gradient(circle at 80% 30%, rgba(180,0,255,.16), transparent 30%),
+      radial-gradient(circle at 50% 80%, rgba(255,0,80,.12), transparent 30%);
+    pointer-events:none;
+}
 
   @media (prefers-reduced-motion: no-preference) {
     .card { animation: subir 0.5s ease; }
