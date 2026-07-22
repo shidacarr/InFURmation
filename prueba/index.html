@@ -31,7 +31,6 @@
     position: relative;
     overflow-x: hidden;
 
-    /* Fondo usando toda la paleta del propio código */
     background:
       radial-gradient(ellipse 1100px 600px at 50% -18%, rgba(210, 97, 255, 0.22), transparent 65%),
       radial-gradient(ellipse 900px 520px at 50% 118%, rgba(201, 20, 20, 0.20), transparent 65%),
@@ -51,29 +50,21 @@
     background-attachment: fixed;
   }
 
-  .zorrito {
-    position: fixed;
-    pointer-events: none;
-    z-index: 0;
-    filter: blur(0.3px);
-  }
-  .zorrito.z1 { top:  7%; left:  6%; width: 110px; opacity: 0.12; transform: rotate(-10deg); color: #D261FF; }
-  .zorrito.z2 { top: 12%; right: 9%; width:  80px; opacity: 0.16; transform: rotate(  8deg); color: #C91414; }
-  .zorrito.z3 { bottom: 10%; left:  5%; width: 140px; opacity: 0.10; transform: rotate( -4deg); color: #f2eee6; }
-  .zorrito.z4 { bottom: 16%; right: 4%; width: 100px; opacity: 0.14; transform: rotate( 12deg); color: #C91414; }
-  .zorrito.z5 { top:  46%; left:  2%; width:  60px; opacity: 0.10; transform: rotate(  6deg); color: #D261FF; }
-  .zorrito.z6 { top:  44%; right: 3%; width:  70px; opacity: 0.12; transform: rotate( -8deg); color: #f2eee6; }
-
   .huella {
     position: fixed;
     pointer-events: none;
     z-index: 0;
     color: currentColor;
+    filter: blur(0.3px);
   }
-  .huella.h1 { top: 30%; left: 12%; width: 14px; opacity: 0.18; color: #C91414; transform: rotate(-20deg); }
-  .huella.h2 { top: 38%; right: 14%; width: 12px; opacity: 0.20; color: #D261FF; transform: rotate( 30deg); }
-  .huella.h3 { bottom: 30%; left: 14%; width: 14px; opacity: 0.16; color: #D261FF; transform: rotate( 10deg); }
-  .huella.h4 { bottom: 36%; right: 12%; width: 12px; opacity: 0.20; color: #C91414; transform: rotate(-15deg); }
+  .huella.h1 { top: 18%; left: 10%; width: 26px; opacity: 0.14; color: #D261FF; transform: rotate(-18deg); }
+  .huella.h2 { top: 14%; right: 12%; width: 22px; opacity: 0.12; color: #C91414; transform: rotate( 24deg); }
+  .huella.h3 { bottom: 22%; left: 7%; width: 32px; opacity: 0.10; color: #f2eee6; transform: rotate( -8deg); }
+  .huella.h4 { bottom: 18%; right: 8%; width: 28px; opacity: 0.13; color: #D261FF; transform: rotate( 16deg); }
+  .huella.h5 { top: 42%; left: 4%; width: 18px; opacity: 0.10; color: #C91414; transform: rotate( 12deg); }
+  .huella.h6 { top: 48%; right: 5%; width: 20px; opacity: 0.11; color: #f2eee6; transform: rotate(-22deg); }
+  .huella.h7 { bottom: 36%; left: 18%; width: 16px; opacity: 0.09; color: #D261FF; transform: rotate( 30deg); }
+  .huella.h8 { bottom: 40%; right: 15%; width: 17px; opacity: 0.10; color: #C91414; transform: rotate(-14deg); }
 
   .wrap {
     position: relative;
@@ -100,21 +91,12 @@
       0 0 40px -12px var(--color-acento-glow);
   }
 
-  .hole {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    background: #100e12;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.6);
-    margin: 0 auto 22px;
-  }
-
   .avatar-ring {
-    width: 108px;
-    height: 108px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    margin: 0 auto 18px;
-    padding: 4px;
+    margin: 0 auto 22px;
+    padding: 5px;
     background: conic-gradient(var(--color-acento), var(--color-acento-glow), var(--color-acento));
   }
 
@@ -241,7 +223,7 @@
     font-weight: 500;
   }
 
-  /* === Minicarta de presentación === */
+
   .minicarta {
     margin-top: 22px;
     padding: 16px 18px;
@@ -325,14 +307,14 @@
   }
 
   @media (max-width: 520px) {
-    .zorrito.z3, .zorrito.z4, .zorrito.z5, .zorrito.z6,
-    .huella.h1, .huella.h2, .huella.h3, .huella.h4 { display: none; }
+    .huella.h1, .huella.h2, .huella.h3, .huella.h4,
+    .huella.h5, .huella.h6, .huella.h7, .huella.h8 { opacity: 0.08; }
   }
 
   @media (max-width: 420px) {
     .wrap { padding: 0 4px; }
     .card { padding: 28px 16px 26px; border-radius: 18px; }
-    .avatar-ring { width: 92px; height: 92px; }
+    .avatar-ring { width: 120px; height: 120px; margin-bottom: 18px; }
     .nombre { font-size: 23px; }
     .minicarta { padding: 14px 14px; }
     .minicarta-texto { font-size: 12px; }
@@ -341,7 +323,7 @@
   @media (max-width: 340px) {
     body { padding: 16px 8px; }
     .card { padding: 24px 14px 22px; }
-    .avatar-ring { width: 84px; height: 84px; margin-bottom: 14px; }
+    .avatar-ring { width: 108px; height: 108px; margin-bottom: 16px; }
     .nombre { font-size: 21px; }
     .pronombre { font-size: 11px; padding: 5px 10px 5px 8px; }
   }
@@ -350,7 +332,7 @@
     body { padding: 32px 24px; }
     .wrap { max-width: 520px; }
     .card { max-width: 480px; padding: 42px 34px 34px; }
-    .avatar-ring { width: 120px; height: 120px; margin-bottom: 22px; }
+    .avatar-ring { width: 160px; height: 160px; margin-bottom: 24px; }
     .nombre { font-size: 30px; }
     .minicarta { padding: 20px 22px; }
     .redes { gap: 12px; }
@@ -360,56 +342,66 @@
 </head>
 <body>
 
-  <!-- Zorritos decorativos -->
-  <svg class="zorrito z1" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
-  </svg>
-  <svg class="zorrito z2" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
-  </svg>
-  <svg class="zorrito z3" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
-  </svg>
-  <svg class="zorrito z4" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
-  </svg>
-  <svg class="zorrito z5" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
-  </svg>
-  <svg class="zorrito z6" viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
-    <path d="M30 6 L18 30 Q10 32 14 44 L28 50 L28 70 Q12 72 10 90 Q14 98 28 92 L36 78 Q40 96 50 96 Q60 96 64 78 L72 60 Q92 56 88 40 Q86 26 76 26 L74 6 L62 22 L50 22 L38 22 Z"/>
-  </svg>
 
-  <!-- Huellitas -->
-  <svg class="huella h1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <ellipse cx="12" cy="16" rx="6" ry="5"/>
-    <ellipse cx="6"  cy="6"  rx="2.2" ry="2.6"/>
-    <ellipse cx="12" cy="3"  rx="2.2" ry="2.8"/>
-    <ellipse cx="18" cy="6"  rx="2.2" ry="2.6"/>
+  <svg class="huella h1" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
   </svg>
-  <svg class="huella h2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <ellipse cx="12" cy="16" rx="6" ry="5"/>
-    <ellipse cx="6"  cy="6"  rx="2.2" ry="2.6"/>
-    <ellipse cx="12" cy="3"  rx="2.2" ry="2.8"/>
-    <ellipse cx="18" cy="6"  rx="2.2" ry="2.6"/>
+  <svg class="huella h2" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
   </svg>
-  <svg class="huella h3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <ellipse cx="12" cy="16" rx="6" ry="5"/>
-    <ellipse cx="6"  cy="6"  rx="2.2" ry="2.6"/>
-    <ellipse cx="12" cy="3"  rx="2.2" ry="2.8"/>
-    <ellipse cx="18" cy="6"  rx="2.2" ry="2.6"/>
+  <svg class="huella h3" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
   </svg>
-  <svg class="huella h4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <ellipse cx="12" cy="16" rx="6" ry="5"/>
-    <ellipse cx="6"  cy="6"  rx="2.2" ry="2.6"/>
-    <ellipse cx="12" cy="3"  rx="2.2" ry="2.8"/>
-    <ellipse cx="18" cy="6"  rx="2.2" ry="2.6"/>
+  <svg class="huella h4" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
+  </svg>
+  <svg class="huella h5" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
+  </svg>
+  <svg class="huella h6" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
+  </svg>
+  <svg class="huella h7" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
+  </svg>
+  <svg class="huella h8" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <ellipse cx="22" cy="18" rx="6" ry="8" transform="rotate(-20 22 18)"/>
+    <ellipse cx="42" cy="18" rx="6" ry="8" transform="rotate(20 42 18)"/>
+    <ellipse cx="16" cy="32" rx="6" ry="8" transform="rotate(-10 16 32)"/>
+    <ellipse cx="48" cy="32" rx="6" ry="8" transform="rotate(10 48 32)"/>
+    <path d="M32,34 C20,34 16,44 18,52 C20,58 26,60 32,60 C38,60 44,58 46,52 C48,44 44,34 32,34 Z"/>
   </svg>
 
   <div class="wrap">
     <div class="card">
-      <div class="hole"></div>
-
       <div class="avatar-ring">
         <div class="avatar"></div>
       </div>
@@ -418,7 +410,7 @@
       <div class="nombre">Podría ser tu tarjeta :P</div>
       <div class="especie">NoTengoFurParaElEjemploJiji</div>
 
-      <!-- 🏳️‍⚧️ Pronombres (opcional) -->
+      
       <div class="pronombre">
         <span class="pronombre-flag" aria-hidden="true">🏳️‍🌈</span>
         <span class="pronombre-label">Pronombres</span>
@@ -429,7 +421,9 @@
       <div class="divider"></div>
 
       <div class="redes">
-
+        
+<!--Cambiar el # con en enlace real del fur -->
+        
         <a class="red" href="#" target="_blank" rel="noopener">
           <svg class="red-icono" viewBox="0 0 24 24" fill="currentColor"><path d="M21.05 3.16 2.4 10.42c-1.27.5-1.26 1.2-.23 1.52l4.77 1.49 1.85 5.65c.23.62.11.87.76.87.5 0 .72-.23 1-.5l2.4-2.33 4.98 3.68c.92.5 1.58.25 1.81-.86l3.28-15.44c.34-1.36-.5-1.98-1.97-1.34Z"/></svg>
           <div class="red-texto">
@@ -438,14 +432,16 @@
           </div>
         </a>
 
+
         <a class="red" href="#" target="_blank" rel="noopener">
           <svg class="red-icono" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22h-6.9l-5.4-6.7L4.8 22H1.6l7.7-8.8L1 2h7l4.9 6.1L18.9 2Z"/></svg>
           <div class="red-texto">
             <span class="red-label">Twitter / X</span>
-            <span class="red-valor">@NoTengoFurParaElEjemploJijio</span>
+            <span class="red-valor">@NoTengoFurParaElEjemploJiji</span>
           </div>
         </a>
 
+      
         <a class="red" href="#" target="_blank" rel="noopener">
           <svg class="red-icono" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.97.24 2.43.4a4.9 4.9 0 0 1 1.77 1.15 4.9 4.9 0 0 1 1.15 1.77c.16.46.35 1.26.4 2.43.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.97-.4 2.43a4.94 4.94 0 0 1-1.15 1.77 4.9 4.9 0 0 1-1.77 1.15c-.46.16-1.26.35-2.43.4-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.97-.24-2.43-.4a4.9 4.9 0 0 1-1.77-1.15 4.9 4.9 0 0 1-1.15-1.77c-.16-.46-.35-1.26-.4-2.43-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.24-1.97.4-2.43a4.9 4.9 0 0 1 1.15-1.77A4.9 4.9 0 0 1 4.72 2.67c.46-.16 1.26-.35 2.43-.4C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.14 0-3.5.01-4.73.07-.96.04-1.48.2-1.82.34-.46.18-.78.39-1.13.73-.34.35-.55.67-.73 1.13-.14.34-.3.86-.34 1.82-.06 1.23-.07 1.59-.07 4.73s.01 3.5.07 4.73c.04.96.2 1.48.34 1.82.18.46.39.78.73 1.13.35.34.67.55 1.13.73.34.14.86.3 1.82.34 1.23.06 1.59.07 4.73.07s3.5-.01 4.73-.07c.96-.04 1.48-.2 1.82-.34.46-.18.78-.39 1.13-.73.34-.35.55-.67.73-1.13.14-.34.3-.86.34-1.82.06-1.23.07-1.59.07-4.73s-.01-3.5-.07-4.73c-.04-.96-.2-1.48-.34-1.82a3.1 3.1 0 0 0-.73-1.13 3.1 3.1 0 0 0-1.13-.73c-.34-.14-.86-.3-1.82-.34C15.5 4.01 15.14 4 12 4Zm0 3.4a4.6 4.6 0 1 1 0 9.2 4.6 4.6 0 0 1 0-9.2Zm0 1.8a2.8 2.8 0 1 0 0 5.6 2.8 2.8 0 0 0 0-5.6Zm5.85-1.99a1.08 1.08 0 1 1-2.15 0 1.08 1.08 0 0 1 2.15 0Z"/></svg>
           <div class="red-texto">
@@ -454,6 +450,7 @@
           </div>
         </a>
 
+      
         <a class="red" href="#" target="_blank" rel="noopener">
           <svg class="red-icono" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 2h-3.2v13.2c0 1.5-1.2 2.7-2.7 2.7a2.7 2.7 0 0 1-2.7-2.7 2.7 2.7 0 0 1 2.7-2.7c.3 0 .6.05.9.13V9.4a5.9 5.9 0 0 0-.9-.07A5.9 5.9 0 0 0 5 15.2a5.9 5.9 0 0 0 5.9 5.9 5.9 5.9 0 0 0 5.9-5.9V8.3a8 8 0 0 0 4.6 1.45V6.55a4.85 4.85 0 0 1-4.8-4.55Z"/></svg>
           <div class="red-texto">
@@ -471,7 +468,8 @@
           Esta es una mini bio de ejemplo 🌙 Personalízala con lo que quieras contar sobre ti: aficiones, profesión, qué buscas, etc. Aquí podemos poner lo que quieras querido furro :P.
         </p>
       </div>
-      
+
+    
       <div class="footer">✦ Tarjeta Digital ✦</div>
     </div>
   </div>
