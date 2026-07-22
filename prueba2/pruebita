@@ -10,8 +10,8 @@
   :root {
     --nombre: "Fox Ryzeen";
     --especie: "El Zorro Sayan";
-    --color-acento: #C91414;
-    --color-acento-glow: #D261FF;
+    --color-acento: #000000;
+    --color-acento-glow: #000000;
   }
 </style>
 
@@ -198,23 +198,23 @@
         <div class="avatar"></div>
       </div>
 
-      <div class="eyebrow">Fursona</div>
-      <div class="nombre">Fox Ryzeen</div>
-      <div class="especie">Zorro Sayan</div>
+      <div class="eyebrow">000000</div>
+      <div class="nombre">000000n</div>
+      <div class="especie">Z000000</div>
 
       <div class="divider"></div>
 
       <div class="redes">
 
-        <a class="red" href="https://t.me/Foxcavessj" target="_blank" rel="noopener">
+        <a class="red" href="https://t.me/Fo000000ssj" target="_blank" rel="noopener">
           <svg class="red-icono" viewBox="0 0 24 24" fill="currentColor"><path d="M21.05 3.16 2.4 10.42c-1.27.5-1.26 1.2-.23 1.52l4.77 1.49 1.85 5.65c.23.62.11.87.76.87.5 0 .72-.23 1-.5l2.4-2.33 4.98 3.68c.92.5 1.58.25 1.81-.86l3.28-15.44c.34-1.36-.5-1.98-1.97-1.34Z"/></svg>
           <div class="red-texto">
             <span class="red-label">Telegram</span>
-            <span class="red-valor">@foxssj</span>
+            <span class="red-valor">@fo000000</span>
           </div>
         </a>
 
-        <a class="red" href="https://twitter.com/USUARIO_AQUI" target="_blank" rel="noopener">
+        <a class="red" href="https://twitter.com/U000000QUI" target="_blank" rel="noopener">
           <svg class="red-icono" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.2L23.3 22h-6.9l-5.4-6.7L4.8 22H1.6l7.7-8.8L1 2h7l4.9 6.1L18.9 2Z"/></svg>
           <div class="red-texto">
             <span class="red-label">Twitter / X</span>
