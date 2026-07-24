@@ -41,20 +41,20 @@
     background-attachment: fixed;
   }
 
-  .huella {
+  .estrella {
     position: fixed;
     pointer-events: none;
     z-index: 0;
     color: currentColor;
   }
-  .huella.h1 { top: 18%; left: 10%; width: 26px; opacity: 0.35; color: #95B02D; transform: rotate(-18deg); }
-  .huella.h2 { top: 14%; right: 12%; width: 22px; opacity: 0.30; color: #FBF5B7; transform: rotate( 24deg); }
-  .huella.h3 { bottom: 22%; left: 7%; width: 32px; opacity: 0.28; color: #95B02D; transform: rotate( -8deg); }
-  .huella.h4 { bottom: 18%; right: 8%; width: 28px; opacity: 0.32; color: #FBF5B7; transform: rotate( 16deg); }
-  .huella.h5 { top: 42%; left: 4%; width: 18px; opacity: 0.25; color: #95B02D; transform: rotate( 12deg); }
-  .huella.h6 { top: 48%; right: 5%; width: 20px; opacity: 0.25; color: #FBF5B7; transform: rotate(-22deg); }
-  .huella.h7 { bottom: 36%; left: 18%; width: 16px; opacity: 0.22; color: #95B02D; transform: rotate( 30deg); }
-  .huella.h8 { bottom: 40%; right: 15%; width: 17px; opacity: 0.22; color: #FBF5B7; transform: rotate(-14deg); }
+  .estrella.h1 { top: 18%; left: 10%; width: 26px; opacity: 0.35; color: #95B02D; transform: rotate(-18deg); }
+  .estrella.h2 { top: 14%; right: 12%; width: 22px; opacity: 0.30; color: #FBF5B7; transform: rotate( 24deg); }
+  .estrella.h3 { bottom: 22%; left: 7%; width: 32px; opacity: 0.28; color: #95B02D; transform: rotate( -8deg); }
+  .estrella.h4 { bottom: 18%; right: 8%; width: 28px; opacity: 0.32; color: #FBF5B7; transform: rotate( 16deg); }
+  .estrella.h5 { top: 42%; left: 4%; width: 18px; opacity: 0.25; color: #95B02D; transform: rotate( 12deg); }
+  .estrella.h6 { top: 48%; right: 5%; width: 20px; opacity: 0.25; color: #FBF5B7; transform: rotate(-22deg); }
+  .estrella.h7 { bottom: 36%; left: 18%; width: 16px; opacity: 0.22; color: #95B02D; transform: rotate( 30deg); }
+  .estrella.h8 { bottom: 40%; right: 15%; width: 17px; opacity: 0.22; color: #FBF5B7; transform: rotate(-14deg); }
 
   .wrap {
     position: relative;
@@ -81,13 +81,11 @@
       0 0 40px -12px rgba(149, 176, 45, 0.35);
   }
 
-  .avatar-ring {
+  .avatar-container {
+    position: relative;
     width: 140px;
     height: 140px;
-    border-radius: 50%;
     margin: 0 auto 22px;
-    padding: 5px;
-    background: conic-gradient(#95B02D, #FBF5B7, #95B02D);
   }
 
   .avatar {
@@ -97,6 +95,16 @@
     background: #0f2e2e center/cover no-repeat;
     background-image: url('https://raw.githubusercontent.com/shidacarr/InFURmation/main/devo/PerfilDevo.gif');
     border: 3px solid #133B3B;
+  }
+
+  .anillo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    pointer-events: none;
   }
 
   .eyebrow {
@@ -294,15 +302,16 @@
     }
   }
 
-  @media (max-width: 520px) {🦊
-    .huella.h1, .huella.h2, .huella.h3, .huella.h4,
-    .huella.h5, .huella.h6, .huella.h7, .huella.h8 { opacity: 0.12; }
+  @media (max-width: 520px) {
+    .estrella.h1, .estrella.h2, .estrella.h3, .estrella.h4,
+    .estrella.h5, .estrella.h6, .estrella.h7, .estrella.h8 { opacity: 0.08; }
   }
 
   @media (max-width: 420px) {
     .wrap { padding: 0 4px; }
     .card { padding: 28px 16px 26px; border-radius: 18px; }
-    .avatar-ring { width: 120px; height: 120px; margin-bottom: 18px; }
+    .avatar-container { width: 120px; height: 120px; margin-bottom: 18px; }
+    .anillo { width: 138px; height: 138px; }
     .nombre { font-size: 23px; }
     .minicarta { padding: 14px 14px; }
     .minicarta-texto { font-size: 12px; }
@@ -311,7 +320,8 @@
   @media (max-width: 340px) {
     body { padding: 16px 8px; }
     .card { padding: 24px 14px 22px; }
-    .avatar-ring { width: 108px; height: 108px; margin-bottom: 16px; }
+    .avatar-container { width: 108px; height: 108px; margin-bottom: 16px; }
+    .anillo { width: 124px; height: 124px; }
     .nombre { font-size: 21px; }
     .pronombre { font-size: 11px; padding: 5px 10px 5px 8px; }
   }
@@ -320,7 +330,8 @@
     body { padding: 32px 24px; }
     .wrap { max-width: 520px; }
     .card { max-width: 480px; padding: 42px 34px 34px; }
-    .avatar-ring { width: 160px; height: 160px; margin-bottom: 24px; }
+    .avatar-container { width: 160px; height: 160px; margin-bottom: 24px; }
+    .anillo { width: 182px; height: 182px; }
     .nombre { font-size: 30px; }
     .minicarta { padding: 20px 22px; }
     .redes { gap: 12px; }
@@ -330,35 +341,36 @@
 </head>
 <body>
 
-  <svg class="huella h1" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h1" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h2" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h2" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h3" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h3" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h4" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h5" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h6" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h7" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h7" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
-  <svg class="huella h8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-    <path d="M12 2l2.5 6.5L21 9l-5 4.2L17.5 21 12 17.5 6.5 21l1.5-7.8L3 9l6.5-.5L12 2z"/>
+  <svg class="estrella h8" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
+    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
   </svg>
 
   <div class="wrap">
     <div class="card">
-      <div class="avatar-ring">
+      <div class="avatar-container">
         <div class="avatar"></div>
+        <img src="https://raw.githubusercontent.com/shidacarr/InFURmation/main/devo/Auriculares.png" alt="" class="anillo">
       </div>
 
       <div class="eyebrow">Zorro Fennec / Fennec Fox</div>
@@ -368,7 +380,7 @@
         <span class="pronombre-flag" aria-hidden="true">🎮</span>
         <span class="pronombre-label">Pronombres</span>
         <span class="pronombre-punto" aria-hidden="true"></span>
-        <span class="pronombre-valor">He · Him</span>
+        <span class="pronombre-valor">he · him</span>
       </div>
 
       <div class="divider"></div>
@@ -391,9 +403,9 @@
         </a>
 
         <a class="red" href="https://barq.app/@DevoTheFennec" target="_blank" rel="noopener">
-          <svg class="red-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg class="red-icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="2" y="5" width="20" height="14" rx="2"/>
-            <path d="M2 7l10 7 10-7"/>
+            <path d="M2 7l9.3 6.55a1 1 0 0 0 1.4 0L22 7"/>
           </svg>
           <div class="red-texto">
             <span class="red-label">BARQ</span>
@@ -409,7 +421,7 @@
           </div>
         </a>
       </div>
-      
+
       <div class="minicarta">
         <div class="minicarta-eyebrow">Sobre mí</div>
         <p class="minicarta-texto">
