@@ -1,8 +1,8 @@
-Plantillas de Tarjetas Digitales para Llaveros
+**INFURMATION**
 
 Plantillas de tarjetas de presentación digitales en HTML y CSS, pensadas para promocionar pequeños negocios, proyectos personales o perfiles de redes sociales.
 
-Hecho con sudor y lágrimas por [@shidacarr](https://github.com/shidacarr).
+Hecho con amor, sudor y lágrimas por [@shidacarr](https://github.com/shidacarr).
 
 ---
 
