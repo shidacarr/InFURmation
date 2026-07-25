@@ -18,7 +18,9 @@
       --color-cream-soft: rgba(251, 245, 183, 0.65);
       --radius-card: 22px;
       --radius-avatar: 24px;
-      --decor-scale: 1.85; /* Cambia este número para hacer el marco más grande (>1) o más pequeño (<1) */
+      --decor-scale: 1.85;
+      --eyebrow-size: 16px; 
+      --nombre-size: 50px; 
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -159,8 +161,8 @@
     }
 
     .eyebrow {
-      font-size: 11px;
-      letter-spacing: 0.18em;
+      font-size: var(--eyebrow-size);
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       color: var(--color-accent);
       margin-bottom: 6px;
@@ -169,11 +171,11 @@
     .nombre {
       font-family: 'Yuyu', sans-serif;
       font-weight: 400;
-      font-size: 36px;
+      font-size: var(--nombre-size);
       line-height: 1.05;
       color: var(--color-cream);
       letter-spacing: -0.02em;
-      margin-bottom: 8px;
+      margin-bottom: 20px;
     }
 
     .pronombre {
@@ -191,7 +193,7 @@
     .pronombre:hover { border-color: var(--color-accent); }
     .pronombre-flag { font-size: 13px; line-height: 1; }
     .pronombre-label {
-      font-size: 9px;
+      font-size: 15px;
       text-transform: uppercase;
       letter-spacing: 0.14em;
       color: rgba(251, 245, 183, 0.55);
@@ -329,7 +331,7 @@
       .wrap { padding: 0 4px; }
       .card { padding: 28px 16px 26px; border-radius: 18px; }
       .avatar-ring { --ring-size: 140px; margin-bottom: 20px; }
-      .nombre { font-size: 28px; }
+      .nombre { font-size: 32px; }
       .minicarta { padding: 14px 14px; }
       .minicarta-texto { font-size: 12px; }
     }
@@ -347,7 +349,7 @@
       .wrap { max-width: 520px; }
       .card { max-width: 480px; padding: 42px 34px 34px; }
       .avatar-ring { --ring-size: 190px; margin-bottom: 28px; }
-      .nombre { font-size: 42px; }
+      .nombre { font-size: 52px; }
       .minicarta { padding: 20px 22px; }
       .redes { gap: 12px; }
       .red { padding: 14px 18px; }
@@ -372,7 +374,7 @@
         <img class="avatar-decor" src="https://raw.githubusercontent.com/shidacarr/InFURmation/main/devo/DecoracionPerfil.png" alt="" aria-hidden="true">
       </div>
 
-      <div class="eyebrow">Zorro Fennec / Fennec Fox</div>
+      <div class="eyebrow">Zorro Fennec</div>
       <div class="nombre">Devo The Fennec</div>
 
       <div class="pronombre">
