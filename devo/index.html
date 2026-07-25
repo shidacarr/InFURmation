@@ -1,368 +1,354 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Devo - InFURmate</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devo - InFURmate</title>
 
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Yuyu&display=swap');
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html, body { height: 100%; }
-
-  body {
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: grid;
-    place-items: center;
-    font-family: 'Poppins', sans-serif;
-    padding: 24px 16px;
-    position: relative;
-    overflow-x: hidden;
-
-    background:
-      radial-gradient(ellipse 1100px 600px at 50% -18%, rgba(149, 176, 45, 0.18), transparent 65%),
-      radial-gradient(ellipse 900px 520px at 50% 118%, rgba(251, 245, 183, 0.12), transparent 65%),
-      radial-gradient(ellipse 700px 460px at 4% 50%, rgba(251, 245, 183, 0.06), transparent 55%),
-      radial-gradient(ellipse 700px 460px at 96% 50%, rgba(149, 176, 45, 0.06), transparent 55%),
-      radial-gradient(1.5px 1.5px at 12% 22%, rgba(251, 245, 183, 0.45) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 86% 18%, rgba(251, 245, 183, 0.35) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 28% 78%, rgba(149, 176, 45, 0.30) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 78% 82%, rgba(251, 245, 183, 0.35) 50%, transparent 100%),
-      radial-gradient(2px 2px at 48% 12%, rgba(149, 176, 45, 0.45) 50%, transparent 100%),
-      radial-gradient(2px 2px at 56% 88%, rgba(251, 245, 183, 0.45) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 38% 42%, rgba(149, 176, 45, 0.22) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 66% 58%, rgba(251, 245, 183, 0.22) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 92% 42%, rgba(251, 245, 183, 0.28) 50%, transparent 100%),
-      radial-gradient(1.5px 1.5px at 8% 58%, rgba(149, 176, 45, 0.20) 50%, transparent 100%),
-      radial-gradient(circle at 50% 0%, #133B3B 0%, #0d2a2a 55%, #071818 100%);
-    background-attachment: fixed;
-  }
-
-  .estrella {
-    position: fixed;
-    pointer-events: none;
-    z-index: 0;
-    color: currentColor;
-  }
-  .estrella.h1 { top: 18%; left: 10%; width: 26px; opacity: 0.35; color: #95B02D; transform: rotate(-18deg); }
-  .estrella.h2 { top: 14%; right: 12%; width: 22px; opacity: 0.30; color: #FBF5B7; transform: rotate( 24deg); }
-  .estrella.h3 { bottom: 22%; left: 7%; width: 32px; opacity: 0.28; color: #95B02D; transform: rotate( -8deg); }
-  .estrella.h4 { bottom: 18%; right: 8%; width: 28px; opacity: 0.32; color: #FBF5B7; transform: rotate( 16deg); }
-  .estrella.h5 { top: 42%; left: 4%; width: 18px; opacity: 0.25; color: #95B02D; transform: rotate( 12deg); }
-  .estrella.h6 { top: 48%; right: 5%; width: 20px; opacity: 0.25; color: #FBF5B7; transform: rotate(-22deg); }
-  .estrella.h7 { bottom: 36%; left: 18%; width: 16px; opacity: 0.22; color: #95B02D; transform: rotate( 30deg); }
-  .estrella.h8 { bottom: 40%; right: 15%; width: 17px; opacity: 0.22; color: #FBF5B7; transform: rotate(-14deg); }
-
-  .wrap {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    max-width: 440px;
-    display: flex;
-    justify-content: center;
-    padding: 0 10px;
-  }
-
-  .card {
-    position: relative;
-    width: 100%;
-    max-width: 420px;
-    background: #133B3B;
-    border: 2px solid rgba(251, 245, 183, 0.18);
-    border-radius: 22px;
-    padding: 36px 28px 30px;
-    text-align: center;
-    box-shadow:
-      0 0 0 1px rgba(251, 245, 183, 0.04) inset,
-      0 20px 60px -20px rgba(0,0,0,0.7),
-      0 0 40px -12px rgba(149, 176, 45, 0.35);
-  }
-
-  .avatar-ring {
-     position: relative;
-    width: 170px;
-    height: 170px;
-    margin: 0 auto 50px;
-  }
-
-  .avatar {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110%;
-    height: 110%;
-    border-radius: 30%;
-    background-color: #0f2e2e;
-    background-image: url('https://raw.githubusercontent.com/shidacarr/InFURmation/main/devo/PerfilDevo.png');
-    background-position: center 50%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-    border: 3px solid #133B3B;
-    /* Borde extra sin modificar los valores del avatar */
-    box-shadow: 0 0 0 4px #95B02D;
-  }
-
-  .eyebrow {
-    font-family: 'Poppins', sans-serif;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: #95B02D;
-    margin-top: 18px;
-    margin-bottom: 6px;
-  }
-
-  .nombre {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 26px;
-    color: #FBF5B7;
-    letter-spacing: 0.01em;
-  }
-
-  .especie {
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    color: rgba(251, 245, 183, 0.65);
-    margin-top: 4px;
-    margin-bottom: 16px;
-  }
-
-  .pronombre {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px 6px 10px;
-    margin: 0 auto 22px;
-    background: rgba(19, 59, 59, 0.8);
-    border: 1px solid rgba(251, 245, 183, 0.22);
-    border-radius: 999px;
-    font-size: 12px;
-    transition: border-color 0.2s ease;
-  }
-  .pronombre:hover { border-color: #95B02D; }
-  .pronombre-flag { font-size: 13px; line-height: 1; }
-  .pronombre-label {
-    font-family: 'Poppins', sans-serif;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: rgba(251, 245, 183, 0.55);
-  }
-  .pronombre-valor {
-    color: #FBF5B7;
-    font-weight: 500;
-    letter-spacing: 0.01em;
-  }
-  .pronombre-punto {
-    width: 3px;
-    height: 3px;
-    border-radius: 50%;
-    background: #95B02D;
-    opacity: 0.85;
-  }
-
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(251, 245, 183, 0.35), transparent);
-    margin-bottom: 24px;
-  }
-
-  .redes {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .red {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    background: #0f2e2e;
-    border: 1px solid rgba(251, 245, 183, 0.10);
-    border-radius: 12px;
-    text-decoration: none;
-    transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
-  }
-  .red:hover { border-color: #95B02D; background: #164040; }
-  .red:active { transform: scale(0.97); }
-
-  .red-icono {
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    color: #95B02D;
-  }
-
-  .red-texto {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-  }
-
-  .red-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(251, 245, 183, 0.55);
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .red-valor {
-    font-size: 14px;
-    color: #FBF5B7;
-    font-weight: 500;
-  }
-
-  .minicarta {
-    margin-top: 22px;
-    padding: 16px 18px;
-    background: linear-gradient(180deg, #164040 0%, #133B3B 100%);
-    border: 1px solid rgba(251, 245, 183, 0.15);
-    border-left: 2px solid #95B02D;
-    border-radius: 10px;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-  }
-  .minicarta::before {
-    content: "";
-    position: absolute;
-    top: 0; right: 0;
-    width: 70px; height: 70px;
-    background: radial-gradient(circle at 100% 0%, rgba(149, 176, 45, 0.14), transparent 70%);
-    pointer-events: none;
-  }
-  .minicarta-eyebrow {
-    font-family: 'Poppins', sans-serif;
-    font-size: 9px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: #95B02D;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .minicarta-eyebrow::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(90deg, #95B02D, transparent);
-    opacity: 0.45;
-  }
-  .minicarta-texto {
-    font-size: 12.5px;
-    line-height: 1.6;
-    color: rgba(251, 245, 183, 0.85);
-    font-weight: 400;
-  }
-  .minicarta-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 12px;
-  }
-  .minicarta-tags--abajo {
-    justify-content: center;
-    margin-top: 18px;
-  }
-  .minicarta-tag {
-    font-family: 'Poppins', sans-serif;
-    font-size: 9.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: rgba(251, 245, 183, 0.75);
-    background: rgba(149, 176, 45, 0.10);
-    border: 1px solid rgba(251, 245, 183, 0.18);
-    padding: 4px 9px;
-    border-radius: 999px;
-  }
-
-  .footer {
-    margin-top: 26px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    color: rgba(251, 245, 183, 0.45);
-    text-transform: uppercase;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
-    .card { animation: subir 0.5s ease; }
-    @keyframes subir {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
+    :root {
+      --color-bg: #133B3B;
+      --color-bg-dark: #0d2a2a;
+      --color-bg-darker: #071818;
+      --color-accent: #95B02D;
+      --color-glow: rgba(149, 176, 45, 0.35);
+      --color-cream: #FBF5B7;
+      --color-cream-soft: rgba(251, 245, 183, 0.65);
+      --radius-card: 22px;
+      --radius-avatar: 24px;
     }
-  }
 
-  @media (max-width: 520px) {
-    .estrella.h1, .estrella.h2, .estrella.h3, .estrella.h4,
-    .estrella.h5, .estrella.h6, .estrella.h7, .estrella.h8 { opacity: 0.08; }
-  }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  @media (max-width: 420px) {
-    .wrap { padding: 0 4px; }
-    .card { padding: 28px 16px 26px; border-radius: 18px; }
-    .avatar-ring { width: 120px; height: 120px; margin-bottom: 18px; }
-    .nombre { font-size: 23px; }
-    .minicarta { padding: 14px 14px; }
-    .minicarta-texto { font-size: 12px; }
-  }
+    html, body { height: 100%; }
 
-  @media (max-width: 340px) {
-    body { padding: 16px 8px; }
-    .card { padding: 24px 14px 22px; }
-    .avatar-ring { width: 108px; height: 108px; margin-bottom: 16px; }
-    .nombre { font-size: 21px; }
-    .pronombre { font-size: 11px; padding: 5px 10px 5px 8px; }
-  }
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      font-family: 'Poppins', sans-serif;
+      padding: 24px 16px;
+      position: relative;
+      overflow-x: hidden;
 
-  @media (min-width: 768px) {
-    body { padding: 32px 24px; }
-    .wrap { max-width: 520px; }
-    .card { max-width: 480px; padding: 42px 34px 34px; }
-    .avatar-ring { width: 160px; height: 160px; margin-bottom: 24px; }
-    .nombre { font-size: 30px; }
-    .minicarta { padding: 20px 22px; }
-    .redes { gap: 12px; }
-    .red { padding: 14px 18px; }
-  }
-</style>
+      background:
+        radial-gradient(ellipse 1100px 600px at 50% -18%, rgba(149, 176, 45, 0.18), transparent 65%),
+        radial-gradient(ellipse 900px 520px at 50% 118%, rgba(251, 245, 183, 0.12), transparent 65%),
+        radial-gradient(ellipse 700px 460px at 4% 50%, rgba(251, 245, 183, 0.06), transparent 55%),
+        radial-gradient(ellipse 700px 460px at 96% 50%, rgba(149, 176, 45, 0.06), transparent 55%),
+        radial-gradient(1.5px 1.5px at 12% 22%, rgba(251, 245, 183, 0.45) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 86% 18%, rgba(251, 245, 183, 0.35) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 28% 78%, rgba(149, 176, 45, 0.30) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 78% 82%, rgba(251, 245, 183, 0.35) 50%, transparent 100%),
+        radial-gradient(2px 2px at 48% 12%, rgba(149, 176, 45, 0.45) 50%, transparent 100%),
+        radial-gradient(2px 2px at 56% 88%, rgba(251, 245, 183, 0.45) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 38% 42%, rgba(149, 176, 45, 0.22) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 66% 58%, rgba(251, 245, 183, 0.22) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 92% 42%, rgba(251, 245, 183, 0.28) 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 8% 58%, rgba(149, 176, 45, 0.20) 50%, transparent 100%),
+        radial-gradient(circle at 50% 0%, var(--color-bg) 0%, var(--color-bg-dark) 55%, var(--color-bg-darker) 100%);
+      background-attachment: fixed;
+    }
+
+    .estrella {
+      position: fixed;
+      z-index: 0;
+      pointer-events: none;
+      width: 16px;
+      height: 16px;
+      background: currentColor;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      opacity: 0.55;
+      animation: twinkle 4s ease-in-out infinite;
+    }
+    .estrella.h1 { top: 18%; left: 10%; color: var(--color-accent); animation-delay: 0s; }
+    .estrella.h2 { top: 14%; right: 12%; color: var(--color-cream); animation-delay: 0.5s; }
+    .estrella.h3 { bottom: 22%; left: 7%; color: var(--color-accent); animation-delay: 1s; }
+    .estrella.h4 { bottom: 18%; right: 8%; color: var(--color-cream); animation-delay: 1.5s; }
+    .estrella.h5 { top: 42%; left: 4%; color: var(--color-accent); animation-delay: 0.3s; }
+    .estrella.h6 { top: 48%; right: 5%; color: var(--color-cream); animation-delay: 0.8s; }
+    .estrella.h7 { bottom: 36%; left: 18%; color: var(--color-accent); animation-delay: 1.2s; }
+    .estrella.h8 { bottom: 40%; right: 15%; color: var(--color-cream); animation-delay: 1.7s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.15); }
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 440px;
+      display: flex;
+      justify-content: center;
+      padding: 0 10px;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      background: var(--color-bg);
+      border: 1px solid rgba(251, 245, 183, 0.18);
+      border-radius: var(--radius-card);
+      padding: 36px 28px 30px;
+      text-align: center;
+      box-shadow:
+        0 0 0 1px rgba(251, 245, 183, 0.04) inset,
+        0 20px 60px -20px rgba(0, 0, 0, 0.7),
+        0 0 40px -12px var(--color-glow);
+    }
+
+    .avatar-ring {
+      --ring-size: 170px;
+      position: relative;
+      width: var(--ring-size);
+      height: var(--ring-size);
+      margin: 0 auto 26px;
+      border-radius: var(--radius-avatar);
+      padding: 5px;
+      background: linear-gradient(135deg, var(--color-accent), var(--color-cream));
+      box-shadow:
+        0 0 0 2px rgba(19, 59, 59, 0.8),
+        0 0 30px rgba(149, 176, 45, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-ring::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      border-radius: calc(var(--radius-avatar) - 2px);
+      background: var(--color-bg);
+      z-index: 0;
+    }
+
+    .avatar {
+      position: relative;
+      z-index: 1;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      border-radius: calc(var(--radius-avatar) - 4px);
+      background-color: #0f2e2e;
+      background-image: url('https://raw.githubusercontent.com/shidacarr/InFURmation/main/devo/PerfilDevo.png');
+      background-position: center 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 6px;
+    }
+
+    .nombre {
+      font-family: 'Yuyu', sans-serif;
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 1.05;
+      color: var(--color-cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .pronombre {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px 6px 10px;
+      margin: 0 auto 22px;
+      background: rgba(19, 59, 59, 0.8);
+      border: 1px solid rgba(251, 245, 183, 0.22);
+      border-radius: 999px;
+      font-size: 12px;
+      transition: border-color 0.2s ease;
+    }
+    .pronombre:hover { border-color: var(--color-accent); }
+    .pronombre-flag { font-size: 13px; line-height: 1; }
+    .pronombre-label {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(251, 245, 183, 0.55);
+    }
+    .pronombre-valor {
+      color: var(--color-cream);
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    .pronombre-punto {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      opacity: 0.85;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(251, 245, 183, 0.35), transparent);
+      margin-bottom: 24px;
+    }
+
+    .redes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .red {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #0f2e2e;
+      border: 1px solid rgba(251, 245, 183, 0.10);
+      border-radius: 12px;
+      text-decoration: none;
+      transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+    .red:hover { border-color: var(--color-accent); background: #164040; }
+    .red:active { transform: scale(0.97); }
+
+    .red-icono {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      color: var(--color-accent);
+    }
+
+    .red-texto {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .red-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(251, 245, 183, 0.55);
+    }
+
+    .red-valor {
+      font-size: 14px;
+      color: var(--color-cream);
+      font-weight: 500;
+    }
+
+    .minicarta {
+      margin-top: 22px;
+      padding: 16px 18px;
+      background: linear-gradient(180deg, #164040 0%, var(--color-bg) 100%);
+      border: 1px solid rgba(251, 245, 183, 0.15);
+      border-left: 2px solid var(--color-accent);
+      border-radius: 10px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+    }
+    .minicarta::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 70px; height: 70px;
+      background: radial-gradient(circle at 100% 0%, rgba(149, 176, 45, 0.14), transparent 70%);
+      pointer-events: none;
+    }
+    .minicarta-eyebrow {
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .minicarta-eyebrow::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-accent), transparent);
+      opacity: 0.45;
+    }
+    .minicarta-texto {
+      font-size: 12.5px;
+      line-height: 1.6;
+      color: rgba(251, 245, 183, 0.85);
+      font-weight: 400;
+    }
+
+    .footer {
+      margin-top: 26px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: rgba(251, 245, 183, 0.45);
+      text-transform: uppercase;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .card { animation: subir 0.5s ease; }
+      @keyframes subir {
+        from { opacity: 0; transform: translateY(14px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    @media (max-width: 520px) {
+      .estrella { opacity: 0.35; width: 12px; height: 12px; }
+    }
+
+    @media (max-width: 420px) {
+      .wrap { padding: 0 4px; }
+      .card { padding: 28px 16px 26px; border-radius: 18px; }
+      .avatar-ring { --ring-size: 140px; margin-bottom: 20px; }
+      .nombre { font-size: 28px; }
+      .minicarta { padding: 14px 14px; }
+      .minicarta-texto { font-size: 12px; }
+    }
+
+    @media (max-width: 340px) {
+      body { padding: 16px 8px; }
+      .card { padding: 24px 14px 22px; }
+      .avatar-ring { --ring-size: 120px; margin-bottom: 18px; }
+      .nombre { font-size: 24px; }
+      .pronombre { font-size: 11px; padding: 5px 10px 5px 8px; }
+    }
+
+    @media (min-width: 768px) {
+      body { padding: 32px 24px; }
+      .wrap { max-width: 520px; }
+      .card { max-width: 480px; padding: 42px 34px 34px; }
+      .avatar-ring { --ring-size: 190px; margin-bottom: 28px; }
+      .nombre { font-size: 42px; }
+      .minicarta { padding: 20px 22px; }
+      .redes { gap: 12px; }
+      .red { padding: 14px 18px; }
+    }
+  </style>
 </head>
 <body>
 
-  <svg class="estrella h1" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h2" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h3" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h4" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h5" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h6" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h7" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
-  <svg class="estrella h8" viewBox="0 0 64 64" fill="currentColor" aria-hidden="true">
-    <path d="M32 4l4.6 14.2h14.9l-12 8.7 4.6 14.2L32 26.2 19.9 41.1l4.6-14.2-12-8.7h14.9L32 4z"/>
-  </svg>
+  <div class="estrella h1" aria-hidden="true"></div>
+  <div class="estrella h2" aria-hidden="true"></div>
+  <div class="estrella h3" aria-hidden="true"></div>
+  <div class="estrella h4" aria-hidden="true"></div>
+  <div class="estrella h5" aria-hidden="true"></div>
+  <div class="estrella h6" aria-hidden="true"></div>
+  <div class="estrella h7" aria-hidden="true"></div>
+  <div class="estrella h8" aria-hidden="true"></div>
 
   <div class="wrap">
     <div class="card">
@@ -422,7 +408,7 @@
       <div class="minicarta">
         <div class="minicarta-eyebrow">Sobre mí</div>
         <p class="minicarta-texto">
-          Zorro fennec, pequeño pero matón, DMs abiertos para hablar siempre que quieras, no tengas miedo no muerdo (al menos no a menudo) 🦊.
+          Fennec azul, pequeño pero matón, ábreme dm para hablar siempre que quieras, no tengas miedo no muerdo (al menos no a menudo) 🦊.
         </p>
       </div>
 
@@ -431,4 +417,4 @@
   </div>
 
 </body>
-</
+</html>
